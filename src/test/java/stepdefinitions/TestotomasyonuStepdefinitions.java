@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -39,5 +40,57 @@ public class TestotomasyonuStepdefinitions {
     public void aramaKutusunaSamsungYazipAratir() {
 
         testotomasyonuPage.aramakutusu.sendKeys("samsung" + Keys.ENTER);
+    }
+
+    @When("arama kutusuna {string} yazip aratir")
+    public void aramaKutusunaYazipAratir(String istenenKelime) {
+
+        testotomasyonuPage.aramakutusu.sendKeys(istenenKelime + Keys.ENTER);
+    }
+
+    @And("{int} saniye bekler")
+    public void saniyeBekler(int beklenecekSure) {
+
+        try {
+            Thread.sleep(beklenecekSure*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Given("kullanici {string} anasayfaya gider")
+    public void kullanici_anasayfaya_gider(String configdenIstenenUrl) {
+        Driver.getDriver().get(   ConfigReader.getProperty(configdenIstenenUrl)   );
+
+    }
+    @Then("account butonuna basar")
+    public void account_butonuna_basar() {
+        testotomasyonuPage.accountLinki.click();
+    }
+    @Then("email olarak {string} girer")
+    public void email_olarak_girer(String configVerilenEmail) {
+        testotomasyonuPage.loginEmailKutusu.sendKeys(  ConfigReader.getProperty(configVerilenEmail)     );
+    }
+    @Then("password olarak {string} girer")
+    public void password_olarak_girer(String configVerilenPassword) {
+        testotomasyonuPage.loginPasswordKutusu
+                            .sendKeys(   ConfigReader.getProperty(configVerilenPassword)   );
+    }
+    @Then("signIn butonuna basar")
+    public void sign_in_butonuna_basar() {
+        testotomasyonuPage.loginSiginButonu
+                            .click();
+    }
+    @Then("basarili giris yapilabildigini test eder")
+    public void basarili_giris_yapilabildigini_test_eder() {
+        // logout butonunun gorunur oldugunu test edelim
+        Assertions.assertTrue( testotomasyonuPage.logOutButonu.isDisplayed() );
+    }
+
+    @Then("giris yapilamadigini test eder")
+    public void girisYapilamadiginiTestEder() {
+
+        Assertions.assertTrue(testotomasyonuPage.loginSiginButonu.isDisplayed());
     }
 }
