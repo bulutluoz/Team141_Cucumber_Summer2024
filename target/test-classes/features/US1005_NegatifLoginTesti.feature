@@ -23,7 +23,7 @@
       Then giris yapilamadigini test eder
       And sayfayi kapatir
 
-      
+
 
     Scenario: TC11 Kullanici gecersiz email ve gecersiz password ile giris yapamamali
 
