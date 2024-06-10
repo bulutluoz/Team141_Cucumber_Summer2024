@@ -3,9 +3,11 @@ package stepdefinitions;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.FacebookPage;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class FacebookStepdefinitions {
 
@@ -27,10 +29,35 @@ public class FacebookStepdefinitions {
         Actions actions = new Actions(Driver.getDriver());
         Faker faker = new Faker();
 
-        actions.sendKeys(faker.name().firstName()).perform();
+        String fakeEmail= faker.internet().emailAddress();
+
+        actions.sendKeys(faker.name().firstName())
+                .sendKeys(Keys.TAB)
+                .sendKeys(faker.name().lastName())
+                .sendKeys(Keys.TAB)
+                .sendKeys("domates@biber.com").perform();
+        ReusableMethods.bekle(2);
+        actions .sendKeys(Keys.TAB)
+                .sendKeys("domates@biber.com")
+                .sendKeys(Keys.TAB)
+                .sendKeys(faker.internet().password())
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys("15")
+                .sendKeys(Keys.TAB)
+                .sendKeys("Mar")
+                .sendKeys(Keys.TAB)
+                .sendKeys("1989")
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.ARROW_RIGHT)
+                .perform();
+
+
     }
     @Then("facebook kayit ol tusuna basar")
     public void facebook_kayit_ol_tusuna_basar() {
+        facebookPage.signUpButonu.click();
 
     }
 

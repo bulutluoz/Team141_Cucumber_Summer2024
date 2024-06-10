@@ -29,4 +29,7 @@ public class FacebookPage {
     @FindBy(xpath = "//*[@data-testid='open-registration-form-button']")
     public WebElement yeniKayitOlusturButonu;
 
+    @FindBy(name = "websubmit")
+    public WebElement signUpButonu;
+
 }
