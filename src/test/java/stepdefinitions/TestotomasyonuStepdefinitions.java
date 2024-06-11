@@ -112,4 +112,18 @@ public class TestotomasyonuStepdefinitions {
 
         testotomasyonuPage.loginPasswordKutusu.sendKeys(direkVerilenPassword);
     }
+
+
+    @Then("urun excelindeki {string} daki urunun min. miktarini ve urun ismini kaydeder")
+    public void urun_excelindeki_daki_urunun_min_miktarini_ve_urun_ismini_kaydeder(String string) {
+
+    }
+    @Then("urun ismini testotomasyonu sayfasinda arar ve sonuc sayisini kaydeder")
+    public void urun_ismini_testotomasyonu_sayfasinda_arar_ve_sonuc_sayisini_kaydeder() {
+
+    }
+    @Then("bulunan urun sayisinin {string} da verilen min. miktara esit veya daha fazla oldugunu test eder")
+    public void bulunan_urun_sayisinin_da_verilen_min_miktara_esit_veya_daha_fazla_oldugunu_test_eder(String string) {
+
+    }
 }
