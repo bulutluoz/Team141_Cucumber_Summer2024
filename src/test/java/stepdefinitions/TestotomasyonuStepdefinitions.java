@@ -91,6 +91,25 @@ public class TestotomasyonuStepdefinitions {
     @Then("giris yapilamadigini test eder")
     public void girisYapilamadiginiTestEder() {
 
-        Assertions.assertTrue(testotomasyonuPage.loginSiginButonu.isDisplayed());
+        try {
+            Assertions.assertTrue(testotomasyonuPage.loginSiginButonu.isDisplayed());
+        } catch (Exception e) {
+            testotomasyonuPage.logOutButonu.click();
+            Driver.quitDriver();
+            // failed olan assertion'i try catch ile handle ettik
+            // logout yaptiktan sonra yeniden testi FAILED etmemiz gerekir
+            Assertions.assertTrue(false);
+        }
+    }
+
+    @When("email olarak direk verilen {string} girer")
+    public void emailOlarakDirekVerilenGirer(String direkVerilenEmail) {
+        testotomasyonuPage.loginEmailKutusu.sendKeys(direkVerilenEmail);
+    }
+
+    @And("password olarak direk verilen {string} girer")
+    public void passwordOlarakDirekVerilenGirer(String direkVerilenPassword) {
+
+        testotomasyonuPage.loginPasswordKutusu.sendKeys(direkVerilenPassword);
     }
 }
