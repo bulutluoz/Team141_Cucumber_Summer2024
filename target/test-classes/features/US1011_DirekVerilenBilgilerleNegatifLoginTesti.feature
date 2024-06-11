@@ -1,7 +1,7 @@
 
-  Feature:
+  Feature: US1011 Direk verilen yanlis bilgilerle giris yapilamaz
 
-    Scenario Outline:
+    Scenario Outline: TC17 direk verilen gecersiz bilgilerle giris yapilamamali
 
       Given kullanici "toUrl" anasayfaya gider
       Then account butonuna basar

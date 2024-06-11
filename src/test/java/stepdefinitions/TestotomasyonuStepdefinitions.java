@@ -4,14 +4,24 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 import pages.TestotomasyonuPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class TestotomasyonuStepdefinitions {
     TestotomasyonuPage testotomasyonuPage = new TestotomasyonuPage();
+    String exceldeArananUrunIsmi;
+    double exceldeArananUrunMinSonucSayisi;
+    double aramaSonucundaBulunanSonucSayisi;
 
     @Given("kullanici testotomasyonu anasayfaya gider")
     public void kullanici_testotomasyonu_anasayfaya_gider() {
@@ -115,15 +125,42 @@ public class TestotomasyonuStepdefinitions {
 
 
     @Then("urun excelindeki {string} daki urunun min. miktarini ve urun ismini kaydeder")
-    public void urun_excelindeki_daki_urunun_min_miktarini_ve_urun_ismini_kaydeder(String string) {
+    public void urun_excelindeki_daki_urunun_min_miktarini_ve_urun_ismini_kaydeder(String satirNoStr) throws IOException {
+
+        String dosyaYolu = "src/test/resources/urunListesi.xlsx";
+        FileInputStream fileInputStream = new FileInputStream(dosyaYolu);
+        Workbook workbook = WorkbookFactory.create(fileInputStream);
+        Sheet sheet1 = workbook.getSheet("Sheet1");
+
+        int satirNo = Integer.parseInt(satirNoStr);
+
+        exceldeArananUrunIsmi = sheet1
+                                    .getRow(satirNo-1)
+                                    .getCell(0)
+                                    .toString();
+
+        exceldeArananUrunMinSonucSayisi = sheet1
+                                            .getRow(satirNo-1)
+                                            .getCell(1)
+                                            .getNumericCellValue();
 
     }
     @Then("urun ismini testotomasyonu sayfasinda arar ve sonuc sayisini kaydeder")
     public void urun_ismini_testotomasyonu_sayfasinda_arar_ve_sonuc_sayisini_kaydeder() {
+        testotomasyonuPage.aramakutusu.sendKeys(exceldeArananUrunIsmi + Keys.ENTER);
+
+        String sonucYazisi = testotomasyonuPage  // 4 Products Found
+                                    .aramaSonucElementi
+                                    .getText();
+
+        sonucYazisi = sonucYazisi.replaceAll("\\D",""); // "4"
+
+        aramaSonucundaBulunanSonucSayisi = Double.parseDouble(sonucYazisi);
 
     }
     @Then("bulunan urun sayisinin {string} da verilen min. miktara esit veya daha fazla oldugunu test eder")
-    public void bulunan_urun_sayisinin_da_verilen_min_miktara_esit_veya_daha_fazla_oldugunu_test_eder(String string) {
+    public void bulunan_urun_sayisinin_da_verilen_min_miktara_esit_veya_daha_fazla_oldugunu_test_eder(String satirNoStr) {
 
+        Assertions.assertTrue( aramaSonucundaBulunanSonucSayisi >= exceldeArananUrunMinSonucSayisi);
     }
 }

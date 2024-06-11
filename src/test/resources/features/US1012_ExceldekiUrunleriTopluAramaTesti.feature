@@ -1,7 +1,7 @@
 
-  Feature:
+  Feature: US1012 Excelde verilen urunlerin sonuc sayisi test edilir
 
-    Scenario Outline:
+    Scenario Outline: TC18 sitede istenen urunlerin minumum miktarda sonucu olmali
 
       Given kullanici "toUrl" anasayfaya gider
       Then urun excelindeki "<istenenSatir>" daki urunun min. miktarini ve urun ismini kaydeder
@@ -19,3 +19,4 @@
         |7           |
         |8           |
         |9           |
+        |10          |
