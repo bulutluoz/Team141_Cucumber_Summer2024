@@ -33,4 +33,9 @@ public class Guru99Stepdefinitions {
 
         System.out.println(ReusableMethods.stringListesineDonustur(istenenSutundakiWebelementlerListesi));
     }
+
+    @And("tum sayfa screenshot alip {string} ismi ile kaydeder")
+    public void tumSayfaScreenshotAlipIsmiIleKaydeder(String raporAdiStr) {
+        ReusableMethods.tumSayfaScreenshot(Driver.getDriver(),raporAdiStr);
+    }
 }

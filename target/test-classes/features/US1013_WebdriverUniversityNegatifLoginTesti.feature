@@ -13,4 +13,7 @@
       And Ok diyerek Popup'i kapatir
       Then ilk window'a geri doner
       And ilk window a donuldugunu test eder
-      And sayfayi kapatir
+
+
+
+

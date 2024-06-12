@@ -1,6 +1,6 @@
 
   Feature: US1013 fake bilgilerle sisteme giris yapilamaz
-
+    @smoke
     Scenario: TC19 Fake bilgilerle sisteme giris yapilamamali
 
       Given kullanici "webUniUrl" anasayfaya gider
@@ -13,4 +13,7 @@
       And Ok diyerek Popup'i kapatir
       Then ilk window'a geri doner
       And ilk window a donuldugunu test eder
-      And sayfayi kapatir
+
+
+
+

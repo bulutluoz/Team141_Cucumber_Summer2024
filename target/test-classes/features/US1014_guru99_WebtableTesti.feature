@@ -5,5 +5,6 @@
 
       Given kullanici "guruUrl" anasayfaya gider
       And "Prev Close (Rs)", sutunundaki tum degerleri yazdirir
+      And tum sayfa screenshot alip "guruWebTableTesti" ismi ile kaydeder
 
 
