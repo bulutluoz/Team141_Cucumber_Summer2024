@@ -1,4 +1,5 @@
 
+@smoke
 Feature: US1008 Kullanici elementler icin bekler
 
   Scenario: TC14 sonradan gorunen elementler gorunur oluncaya kadar beklenebilmeli

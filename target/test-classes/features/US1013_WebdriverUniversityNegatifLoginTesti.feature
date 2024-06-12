@@ -1,6 +1,6 @@
 
   Feature: US1013 fake bilgilerle sisteme giris yapilamaz
-
+    @smoke
     Scenario: TC19 Fake bilgilerle sisteme giris yapilamamali
 
       Given kullanici "webUniUrl" anasayfaya gider

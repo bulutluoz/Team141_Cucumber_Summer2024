@@ -8,7 +8,7 @@
       Then arama sonucunda urun bulunabildigini test eder
       And sayfayi kapatir
 
-
+    @smoke
     Scenario: TC02 Kullanici sitede dress aratabilmeli
 
       Given kullanici testotomasyonu anasayfaya gider
