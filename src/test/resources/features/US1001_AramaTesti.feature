@@ -1,6 +1,6 @@
 
   Feature: US1001 Testotomasyonu arama testi
-
+    @E2E
     Scenario: TC01 Kullanici sitede phone aratabilmeli
 
       Given kullanici testotomasyonu anasayfaya gider

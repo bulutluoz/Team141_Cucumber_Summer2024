@@ -12,7 +12,7 @@
       And 2 saniye bekler
       And sayfayi kapatir
 
-
+    @E2E
     Scenario: TC10 Kullanici gecersiz email ile giris yapamamali
 
       Given kullanici "toUrl" anasayfaya gider

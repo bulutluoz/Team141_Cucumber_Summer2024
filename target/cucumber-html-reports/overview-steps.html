@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script>
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<title>Cucumber Reports (no 1) - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+        <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+        <th>Number</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>cucumber-jvm-example</td>
+        <td>1</td>
+      <td>12 Jun 2024, 21:30</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+  </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+      <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+  </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Average duration</th>
+            <th>Max duration</th>
+            <th>Total durations</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td class="location">stepdefinitions.HeroquAppStepdefinitions.add_remove_elements_yazisinin_gorunur_oldugunu_test_eder()</td>
+              <td>1</td>
+              <td class="duration" data-value="17873000">0.017</td>
+              <td class="duration" data-value="17873000">0.017</td>
+              <td class="duration" data-value="17873000">0.017</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.HeroquAppStepdefinitions.delete_butonu_nun_gorunur_oldugunu_test_eder()</td>
+              <td>1</td>
+              <td class="duration" data-value="24777000">0.024</td>
+              <td class="duration" data-value="24777000">0.024</td>
+              <td class="duration" data-value="24777000">0.024</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.HeroquAppStepdefinitions.delete_butonunun_kayboldugunu_test_eder()</td>
+              <td>1</td>
+              <td class="duration" data-value="10039052000">10.039</td>
+              <td class="duration" data-value="10039052000">10.039</td>
+              <td class="duration" data-value="10039052000">10.039</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.HeroquAppStepdefinitions.delete_tusuna_basar()</td>
+              <td>1</td>
+              <td class="duration" data-value="57931000">0.057</td>
+              <td class="duration" data-value="57931000">0.057</td>
+              <td class="duration" data-value="57931000">0.057</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.HeroquAppStepdefinitions.kullanici_add_element_butonuna_basar()</td>
+              <td>1</td>
+              <td class="duration" data-value="54486000">0.054</td>
+              <td class="duration" data-value="54486000">0.054</td>
+              <td class="duration" data-value="54486000">0.054</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.Hooks.tearDown(io.cucumber.java.Scenario)</td>
+              <td>5</td>
+              <td class="duration" data-value="1091038600">1.091</td>
+              <td class="duration" data-value="1091038600">1.654</td>
+              <td class="duration" data-value="5455193000">5.455</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.account_butonuna_basar()</td>
+              <td>1</td>
+              <td class="duration" data-value="725941000">0.725</td>
+              <td class="duration" data-value="725941000">0.725</td>
+              <td class="duration" data-value="725941000">0.725</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.aramaKutusunaDressYazipAratir()</td>
+              <td>1</td>
+              <td class="duration" data-value="1383179000">1.383</td>
+              <td class="duration" data-value="1383179000">1.383</td>
+              <td class="duration" data-value="1383179000">1.383</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.aramaKutusunaYazipAratir(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="636938000">0.636</td>
+              <td class="duration" data-value="636938000">0.636</td>
+              <td class="duration" data-value="636938000">0.636</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.arama_sonucunda_urun_bulunabildigini_test_eder()</td>
+              <td>2</td>
+              <td class="duration" data-value="30679500">0.030</td>
+              <td class="duration" data-value="30679500">0.044</td>
+              <td class="duration" data-value="61359000">0.061</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.basarili_giris_yapilabildigini_test_eder()</td>
+              <td>1</td>
+              <td class="duration" data-value="36719000">0.036</td>
+              <td class="duration" data-value="36719000">0.036</td>
+              <td class="duration" data-value="36719000">0.036</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.email_olarak_girer(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="174577000">0.174</td>
+              <td class="duration" data-value="174577000">0.174</td>
+              <td class="duration" data-value="174577000">0.174</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.kullanici_anasayfaya_gider(java.lang.String)</td>
+              <td>3</td>
+              <td class="duration" data-value="2296617000">2.296</td>
+              <td class="duration" data-value="2296617000">2.784</td>
+              <td class="duration" data-value="6889851000">6.889</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.kullanici_testotomasyonu_anasayfaya_gider()</td>
+              <td>2</td>
+              <td class="duration" data-value="3006132000">3.006</td>
+              <td class="duration" data-value="3006132000">3.437</td>
+              <td class="duration" data-value="6012264000">6.012</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.password_olarak_girer(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="104626000">0.104</td>
+              <td class="duration" data-value="104626000">0.104</td>
+              <td class="duration" data-value="104626000">0.104</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.saniyeBekler(int)</td>
+              <td>4</td>
+              <td class="duration" data-value="3005288500">3.005</td>
+              <td class="duration" data-value="3005288500">5.007</td>
+              <td class="duration" data-value="12021154000">12.021</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.sayfayi_kapatir()</td>
+              <td>3</td>
+              <td class="duration" data-value="102057000">0.102</td>
+              <td class="duration" data-value="102057000">0.104</td>
+              <td class="duration" data-value="306171000">0.306</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.TestotomasyonuStepdefinitions.sign_in_butonuna_basar()</td>
+              <td>1</td>
+              <td class="duration" data-value="439559000">0.439</td>
+              <td class="duration" data-value="439559000">0.439</td>
+              <td class="duration" data-value="439559000">0.439</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.WebUniversityStepdefinitions.acilan_diger_window_a_gecer()</td>
+              <td>1</td>
+              <td class="duration" data-value="185089000">0.185</td>
+              <td class="duration" data-value="185089000">0.185</td>
+              <td class="duration" data-value="185089000">0.185</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.WebUniversityStepdefinitions.ilk_window_a_donuldugunu_test_eder()</td>
+              <td>1</td>
+              <td class="duration" data-value="20572000">0.020</td>
+              <td class="duration" data-value="20572000">0.020</td>
+              <td class="duration" data-value="20572000">0.020</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.WebUniversityStepdefinitions.ilk_window_a_geri_doner()</td>
+              <td>1</td>
+              <td class="duration" data-value="78412000">0.078</td>
+              <td class="duration" data-value="78412000">0.078</td>
+              <td class="duration" data-value="78412000">0.078</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.WebUniversityStepdefinitions.login_butonuna_basar()</td>
+              <td>1</td>
+              <td class="duration" data-value="89663000">0.089</td>
+              <td class="duration" data-value="89663000">0.089</td>
+              <td class="duration" data-value="89663000">0.089</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.WebUniversityStepdefinitions.login_portal_a_kadar_asagi_iner()</td>
+              <td>1</td>
+              <td class="duration" data-value="51909000">0.051</td>
+              <td class="duration" data-value="51909000">0.051</td>
+              <td class="duration" data-value="51909000">0.051</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.WebUniversityStepdefinitions.login_portal_a_tiklar()</td>
+              <td>1</td>
+              <td class="duration" data-value="75463000">0.075</td>
+              <td class="duration" data-value="75463000">0.075</td>
+              <td class="duration" data-value="75463000">0.075</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.WebUniversityStepdefinitions.ok_diyerek_popup_i_kapatir()</td>
+              <td>1</td>
+              <td class="duration" data-value="7562000">0.007</td>
+              <td class="duration" data-value="7562000">0.007</td>
+              <td class="duration" data-value="7562000">0.007</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.WebUniversityStepdefinitions.popup_ta_cikan_yazinin_oldugunu_test_eder(java.lang.String)</td>
+              <td>1</td>
+              <td class="duration" data-value="6063000">0.006</td>
+              <td class="duration" data-value="6063000">0.006</td>
+              <td class="duration" data-value="6063000">0.006</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">stepdefinitions.WebUniversityStepdefinitions.username_ve_password_kutularina_fake_degerler_yazdirir()</td>
+              <td>1</td>
+              <td class="duration" data-value="302462000">0.302</td>
+              <td class="duration" data-value="302462000">0.302</td>
+              <td class="duration" data-value="302462000">0.302</td>
+              <td class="passed">100.00%</td>
+            </tr>
+        </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>27</td>
+            <td>40</td>
+            <td class="duration">1.131</td>
+            <td class="duration">12.021</td>
+            <td class="duration">45.258</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

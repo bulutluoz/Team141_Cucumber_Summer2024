@@ -1,5 +1,5 @@
 
-
+  @E2E
   Feature: US1006 kullanici fake bilgilerle facebook'ta kayit olusturur
 
     Scenario: TC12 Kullanici fake bilgilerle facebook'da kayit olusturabilmeli
