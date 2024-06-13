@@ -7,15 +7,17 @@
       When kullanici "editorUrl" anasayfaya gider
       Then new butonuna basar
       And kayit icin "<FirstName>" "<LastName>" "<Position>" "<Office>" "<Extension>" "<StartDate>" ve "<Salary>" degerlerini girer
+      Then 2 saniye bekler
       And Create tusuna basar
-      When kullanici "<Firstname>" ile arama yapar
-      Then isim bolumunde isminin oldugunu dogrular
+      When kullanici "<FirstName>" ile arama yapar
+      Then 1 saniye bekler
+      Then isim bolumunde "<FirstName>" oldugunu dogrular
 
       Examples:
 
       |FirstName |LastName |Position|Office|Extension|StartDate |Salary|
-      |Ilgar     |Ganbarov |QA      |Berlin|Junior   |1-7-2024  |69000 |
-      |Ramazan   |Esen     |QA      |Ankara|Junior   |10-7-2024 |50000 |
-      |Kubra     |Nur      |QA      |Bursa |Junior   |15-7-2024 |35000 |
-      |Nuran     |Yilmaz   |QA      |Izmir |team lead|12-7-2024 |69000 |
-      |Seren     |Serengil |QA      |Bonn  |Junior   |1-7-2024  |75000 |
+      |Ilgar     |Ganbarov |QA      |Berlin|Junior   |2024-10-10|69000 |
+      |Ramazan   |Esen     |QA      |Ankara|Junior   |2024-07-07|50000 |
+      |Kubra     |Nur      |QA      |Bursa |Junior   |2024-08-08|35000 |
+      |Nuran     |Yilmaz   |QA      |Izmir |teamLead |2024-09-09|69000 |
+      |Seren     |Serengil |QA      |Bonn  |Junior   |2024-11-11|75000 |
