@@ -3,6 +3,7 @@ runners/RunnerTopluCalistirmaJsonRaporlu.class
 pages/TestotomasyonuFormPage.class
 runners/RunnerTopluCalistirma.class
 utilities/ReusableMethods.class
+runners/Aciklamalar.class
 runners/Runner.class
 stepdefinitions/FacebookStepdefinitions.class
 pages/FacebookPage.class

@@ -163,4 +163,15 @@ public class TestotomasyonuStepdefinitions {
 
         Assertions.assertTrue( aramaSonucundaBulunanSonucSayisi >= exceldeArananUrunMinSonucSayisi);
     }
+
+    @And("arama sonucunda urun bulunamadigini test eder")
+    public void aramaSonucundaUrunBulunamadiginiTestEder() {
+
+        String expectedAramaSonucu = "0 Products Found";
+        String actualAramaSonucu = testotomasyonuPage
+                                            .aramaSonucElementi
+                                            .getText();
+
+        Assertions.assertEquals(expectedAramaSonucu,actualAramaSonucu);
+    }
 }
