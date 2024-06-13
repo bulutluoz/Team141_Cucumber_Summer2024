@@ -1,5 +1,6 @@
 pages/Guru99Page.class
 runners/RunnerTopluCalistirmaJsonRaporlu.class
+pages/EditorPage.class
 pages/TestotomasyonuFormPage.class
 runners/RunnerTopluCalistirma.class
 utilities/ReusableMethods.class
@@ -13,12 +14,15 @@ stepdefinitions/Guru99Stepdefinitions.class
 runners/RunnerTopluCalistirmaXmlRaporlu.class
 stepdefinitions/Hooks.class
 pages/SaucedemoPage.class
+stepdefinitions/AutomationExerciseStepdefinitions.class
 stepdefinitions/SaucedemoStepdefinitions.class
+stepdefinitions/EditorStepdefinitons.class
 stepdefinitions/HeroquAppStepdefinitions.class
 utilities/Driver.class
 pages/TestotomasyonuPage.class
 pages/HeroquPage.class
 stepdefinitions/TestotomasyonuStepdefinitions.class
+pages/AutomationPage.class
 stepdefinitions/WebUniversityStepdefinitions.class
 pages/WebUniversityPage.class
 runners/ParalelRunner1.class
