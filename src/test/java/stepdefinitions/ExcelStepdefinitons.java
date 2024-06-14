@@ -11,7 +11,9 @@ import org.junit.jupiter.api.Assertions;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 public class ExcelStepdefinitons {
@@ -131,14 +133,71 @@ public class ExcelStepdefinitons {
             ulkelerMapi.put(ingilizceUlkeIsmi,geriyeKalanBilgilerMapi);
         }
 
-        System.out.println(ulkelerMapi);
+        //System.out.println(ulkelerMapi);
     }
     @Then("baskenti Jakarta olan ulkenin tum bilgilerini yazdirir")
     public void baskenti_jakarta_olan_ulkenin_tum_bilgilerini_yazdirir() {
 
+        // map yapisi geregi key ve value'leri ayri ayri bize getirir
+
+        ulkelerMapi.keySet(); // key'leri Set olarak getirir
+        ulkelerMapi.values(); // value'leri bir Collection olarak getirir
+        ulkelerMapi.entrySet(); // key ve value'leri birlestirim Entry olarak getirir
+
+        // baskent ismi jakarta olan ulkenin tum bilgilerini yazdirmak icin
+        // key ve value'ye ihtiyacimiz var
+
+        Set<String> ulkelerMapiKeySeti = ulkelerMapi.keySet();
+        // [Afghanistan, Albania, Algeria, Andorra, Angola,......]
+
+        for ( String ulkeIsmi :  ulkelerMapiKeySeti
+             ) {
+
+            // ulkeIsminin value'sundeki ingilizce baskent ismi jakarta mi diye bakalim
+            String ulkeninIngilizceBaskenti = ulkelerMapi.get(ulkeIsmi).get("baskentIng");
+
+            if (ulkeninIngilizceBaskenti.equalsIgnoreCase("jakarta")){
+
+                System.out.println(
+                        "ulke ingilizce ismi  : " + ulkeIsmi +
+                        "\nulke ingilizce baskenti : " + ulkeninIngilizceBaskenti +
+                        "\nulke turkce ismi : " + ulkelerMapi.get(ulkeIsmi).get("ulkeTurkce")+
+                        "\nulke turkce baskent : " +ulkelerMapi.get(ulkeIsmi).get("baskentTurkce")
+
+                );
+            }
+
+        }
+
+
     }
     @Then("mapi kullanarak turkce ismi Hollanda olan bir ulke bulundugunu test eder")
     public void mapi_kullanarak_turkce_ismi_hollanda_olan_bir_ulke_bulundugunu_test_eder() {
+
+        // sadece var olup olmadigi bilgisine ihtiyac var
+        // turkce ulke ismi value'lerde oldugu icin sadece value'lere odaklanabiliriz
+
+        Collection<Map<String,String>> valuesCollection  = ulkelerMapi.values();
+
+        /*
+
+            [
+               {baskentIng=Kabul, baskentTurkce=Kabil, ulkeTurkce=Afganistan},
+               {baskentIng=Tirana, baskentTurkce=Tiran, ulkeTurkce=Arnavutluk},
+               {baskentIng=Aljiers, baskentTurkce=Cezayir, ulkeTurkce=Cezayir}
+         */
+
+        boolean hollandaVarMi = false;
+
+        for (Map<String,String>  eachUlkeMapi : valuesCollection
+             ) {
+
+            if (eachUlkeMapi.containsValue("Hollanda")){
+                hollandaVarMi = true;
+            }
+        }
+
+        Assertions.assertTrue(hollandaVarMi);
 
     }
 
